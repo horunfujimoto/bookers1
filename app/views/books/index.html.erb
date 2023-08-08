@@ -1,2 +1,14 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>Books</h1>
+
+<!--form_with部分-->
+<h2>New book</h2>
+<%= form_with model: @book, url: '/books', method: :post do |f| %> <!--@bookはbooks.controllerとつなぐインスタンス変数-->
+  <p>Title</p>
+  <%= f.text_field :title %> <!--text_field＝単一行のテキストフィールド-->
+
+  <p>Body</p>
+  <%= f.text_area :body %> <!--text_area＝複数行のテキストフィールド-->
+
+  <%= f.submit 'Create Book' %> <!--submit＝送信ボタン-->
+<% end %>
+
