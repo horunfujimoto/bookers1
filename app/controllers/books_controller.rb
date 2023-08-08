@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def index
+    @books = Book.all #Bookのデータ全部
     @book = Book.new #@bookはindex.htmlとつなぐインスタンス変数
   end
 
@@ -10,9 +11,17 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def edit
+    @book = Book.find(params[:id])
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to '/books'
   end
 
   private
