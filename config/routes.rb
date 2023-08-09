@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => 'homes#top' #トップページ
+  root to:'homes#top' #トップページ、ルートパス独自の書き方！
   get '/books' => 'books#index'  #新規投稿と投稿一覧表はここ
   post '/books' => 'books#create'
   get 'books/:id' => 'books#show', as: 'book' #投稿詳細はここ
